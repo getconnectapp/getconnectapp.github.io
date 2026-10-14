@@ -134,7 +134,6 @@ html{overflow-x:clip}
 .hero__meta li{display:flex;align-items:center;gap:8px}
 .hero__meta li::before{content:"";width:5px;height:5px;transform:rotate(45deg);background:var(--ink)}
 .hero__stage{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;min-width:0}
-.hero__ghost{position:absolute;top:-2%;left:50%;width:120%;max-width:620px;transform:translate(calc(-50% + var(--px,0px)),var(--py,0px));color:var(--ink);opacity:.05;pointer-events:none;transition:transform 1.2s var(--ease)}
 .hero .dev{--w:min(340px,78vw)}
 .finish{display:flex;align-items:center;gap:14px}
 .finish__dots{display:flex;gap:8px}
@@ -441,7 +440,6 @@ footer{border-top:1.2px solid var(--line)}
       </ul>
     </div>
     <div class="hero__stage">
-      <svg class="hero__ghost" id="ghost" viewBox="0 0 240 240" aria-hidden="true"><use href="#mk"/></svg>
       <div class="dev" id="heroDev" data-tilt data-cursor="Tilt"><div class="dev__screen">
         <video src="media/hero-feed.mp4" poster="media/feed.webp" muted loop playsinline autoplay preload="auto" aria-label="The Connect feed, playing"></video>
       </div><i class="dev__glare"></i></div>
@@ -757,13 +755,6 @@ footer{border-top:1.2px solid var(--line)}
       d.classList.add('is-tilting'); kick();
     });
     d.addEventListener('pointerleave', () => { tx = 0; ty = 0; d.classList.remove('is-tilting'); kick() });
-  });
-
-  /* ---------- The big mark behind the hero drifts with the cursor ---------- */
-  if (fine && !reduce) $('#hero').addEventListener('pointermove', e => {
-    const g = $('#ghost');
-    g.style.setProperty('--px', ((e.clientX / innerWidth - 0.5) * -26) + 'px');
-    g.style.setProperty('--py', ((e.clientY / innerHeight - 0.5) * -18) + 'px');
   });
 
   /* ---------- Interests ribbon: drifts, and speeds up with your scroll ---------- */
