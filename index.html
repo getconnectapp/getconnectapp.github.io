@@ -90,7 +90,9 @@ section{scroll-margin-top:96px}
 .cur.is-link .cur__ring{width:60px;height:60px;margin:-30px 0 0 -30px;background:#fff}
 .cur.is-label .cur__ring{width:92px;height:92px;margin:-46px 0 0 -46px;background:#fff}
 .cur.is-label .cur__ring span{opacity:1}
-.cur.is-link .cur__dot,.cur.is-label .cur__dot{opacity:0}
+.cur__ring{display:none}
+.cur__dot{transition:width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease)}
+.cur.is-link .cur__dot{width:12px;height:12px;margin:-6px 0 0 -6px}
 .cur.is-down .cur__ring{transform:scale(.86)}
 
 /* ---------- Nav ---------- */
